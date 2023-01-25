@@ -32,7 +32,7 @@ Currently the `standalone` and `webroot` method are supported for generating new
 
     certbot_create_if_missing: false
 
-Set `certbot_create_if_missing` to `yes` or `True` to let this role generate certs. 
+Set `certbot_create_if_missing` to `yes` or `True` to let this role generate certs.
 
     certbot_create_method: standalone
 
@@ -113,12 +113,12 @@ None.
 ## Example Playbook
 
     - hosts: servers
-    
+
       vars:
         certbot_auto_renew_user: your_username_here
         certbot_auto_renew_minute: "20"
         certbot_auto_renew_hour: "5"
-    
+
       roles:
         - geerlingguy.certbot
 
@@ -155,6 +155,16 @@ You can test the auto-renewal (without actually renewing the cert) with the comm
     /opt/certbot/certbot-auto renew --dry-run
 
 See full documentation and options on the [Certbot website](https://certbot.eff.org/).
+
+## Skip Certbot Installation
+
+It is possible to bypass the installation of certbot to run only the generation and automation of certificates. By default, the `certbot_skip_installation` value is false.
+
+Set `certbot_skip_installation` to yes or True to skip certbot installation.
+
+    certbot_skip_installation: false
+
+If this option is enabled, then it will be necessary to manually set the `certbot_script` variable because currently it is only set at installation time. This variable is required for the `certbot_create_command` variable as well as for the auto-renewal cron.
 
 ## License
 
