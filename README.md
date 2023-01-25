@@ -164,6 +164,8 @@ Set `certbot_skip_installation` to yes or True to skip certbot installation.
 
     certbot_skip_installation: false
 
+If this option is enabled, then it will be necessary to manually set the `certbot_script` variable because currently it is only set at installation time. This variable is required for the `certbot_create_command` variable as well as for the auto-renewal cron.
+
 ## License
 
 MIT / BSD
